@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Bokeh Effect -->
+    <div class="bokeh-container">
+        <div class="bokeh bokeh-1"></div>
+        <div class="bokeh bokeh-2"></div>
+        <div class="bokeh bokeh-3"></div>
+        <div class="bokeh bokeh-4"></div>
+        <div class="bokeh bokeh-5"></div>
+        <div class="bokeh bokeh-6"></div>
+    </div>
+
+    <!-- Audio Control -->
+    <button class="audio-toggle" id="audioToggle" aria-label="Toggle music">
+        <svg class="audio-icon audio-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+        <svg class="audio-icon audio-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+    </button>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section with Countdown -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <p class="hero-prelude">My Dearest Lara</p>
+                <h1 class="hero-title">
+                    <span class="title-line">Will You Be</span>
+                    <span class="title-line title-accent">My Valentine?</span>
+                </h1>
+
+                <div class="countdown-wrapper">
+                    <p class="countdown-label">Valentine's Day arrives in</p>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="days">00</span>
+                            <span class="countdown-unit">days</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="hours">00</span>
+                            <span class="countdown-unit">hours</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="minutes">00</span>
+                            <span class="countdown-unit">minutes</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="seconds">00</span>
+                            <span class="countdown-unit">seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-hint">
+                    <span>Scroll to discover</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Letter Section -->
+        <section class="love-letter" id="letter">
+            <div class="letter-container">
+                <div class="letter-seal"></div>
+                <div class="letter-content">
+                    <p class="letter-greeting">My Love,</p>
+                    <p class="letter-body">
+                        Every moment with you feels like a beautiful dream I never want to wake from.
+                        Your smile lights up my world, your laugh is my favorite melody, and your love
+                        is the greatest gift I've ever received.
+                    </p>
+                    <p class="letter-body">
+                        This Valentine's Day, I want to celebrate us — every silly joke, every
+                        adventure, every quiet moment, and every heartbeat we've shared together.
+                    </p>
+                    <p class="letter-body">
+                        You make ordinary days extraordinary, and I fall more in love with you
+                        with each passing moment.
+                    </p>
+                    <p class="letter-closing">Forever & Always Yours</p>
+                    <p class="letter-signature">~ Shane</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="gallery" id="gallery">
+            <h2 class="gallery-title">Our Story</h2>
+            <p class="gallery-subtitle">Moments that make my heart sing</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-item-1">
+                    <div class="photo-placeholder">
+                        <span class="placeholder-text">Photo 1</span>
+                        <span class="placeholder-hint">Add your photo</span>
+                    </div>
+                    <p class="photo-caption">Our first adventure together</p>
+                </div>
+                <div class="gallery-item gallery-item-2">
+                    <div class="photo-placeholder">
+                        <span class="placeholder-text">Photo 2</span>
+                        <span class="placeholder-hint">Add your photo</span>
+                    </div>
+                    <p class="photo-caption">That perfect sunset</p>
+                </div>
+                <div class="gallery-item gallery-item-3">
+                    <div class="photo-placeholder">
+                        <span class="placeholder-text">Photo 3</span>
+                        <span class="placeholder-hint">Add your photo</span>
+                    </div>
+                    <p class="photo-caption">Laughing until it hurts</p>
+                </div>
+                <div class="gallery-item gallery-item-4">
+                    <div class="photo-placeholder">
+                        <span class="placeholder-text">Photo 4</span>
+                        <span class="placeholder-hint">Add your photo</span>
+                    </div>
+                    <p class="photo-caption">My favorite smile</p>
+                </div>
+                <div class="gallery-item gallery-item-5">
+                    <div class="photo-placeholder">
+                        <span class="placeholder-text">Photo 5</span>
+                        <span class="placeholder-hint">Add your photo</span>
+                    </div>
+                    <p class="photo-caption">Making memories</p>
+                </div>
+                <div class="gallery-item gallery-item-6">
+                    <div class="photo-placeholder">
+                        <span class="placeholder-text">Photo 6</span>
+                        <span class="placeholder-hint">Add your photo</span>
+                    </div>
+                    <p class="photo-caption">Together is my favorite place</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Question Section -->
+        <section class="question-section" id="question">
+            <div class="question-container">
+                <div class="question-hearts">
+                    <span class="floating-heart fh-1">&#10084;</span>
+                    <span class="floating-heart fh-2">&#10084;</span>
+                    <span class="floating-heart fh-3">&#10084;</span>
+                </div>
+
+                <h2 class="question-title">So, what do you say?</h2>
+                <p class="question-subtitle">Will you be my Valentine?</p>
+
+                <div class="button-container" id="buttonContainer">
+                    <button class="valentine-btn yes-btn" id="yesBtn">
+                        <span class="btn-text">Yes!</span>
+                        <span class="btn-hearts">&#10084; &#10084; &#10084;</span>
+                    </button>
+                    <button class="valentine-btn no-btn" id="noBtn">
+                        <span class="btn-text">No</span>
+                    </button>
+                </div>
+
+                <!-- Yes Response -->
+                <div class="response yes-response" id="yesResponse">
+                    <div class="confetti-container" id="confettiContainer"></div>
+                    <h3 class="response-title">You've made me the happiest!</h3>
+                    <p class="response-text">I promise to make this the most magical Valentine's Day ever. I love you more than words could ever express!</p>
+                    <div class="response-hearts">
+                        <span>&#10084;</span><span>&#10084;</span><span>&#10084;</span>
+                    </div>
+                </div>
+
+                <!-- No Response (playful) -->
+                <div class="response no-response" id="noResponse">
+                    <p class="no-text">Are you sure? The button seems to disagree...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hidden Audio Element -->
+    <audio id="bgMusic" loop>
+        <source src="music/HUMBE - fantasmas.mp3" type="audio/mpeg">
+        <!-- Add your own romantic song file -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1006 @@
+/* ============================================
+   ROMANTIC VALENTINE'S DAY WEBSITE
+   Aesthetic: Cinematic Romance with Warm Tones
+   ============================================ */
+
+/* CSS Custom Properties */
+:root {
+    /* Color Palette - Warm Rose & Deep Wine */
+    --rose-gold: #b76e79;
+    --rose-gold-light: #d4a5ab;
+    --rose-blush: #f8e8e8;
+    --deep-burgundy: #722f37;
+    --wine: #4a1c24;
+    --champagne: #f7e7ce;
+    --cream: #fdfaf6;
+    --soft-pink: #fce4e4;
+    --gold-shimmer: #d4af37;
+
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, #722f37 0%, #4a1c24 50%, #2d1216 100%);
+    --gradient-blush: linear-gradient(180deg, #fdfaf6 0%, #f8e8e8 100%);
+    --gradient-shimmer: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+
+    /* Typography */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Josefin Sans', 'Helvetica Neue', sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+
+    /* Animation */
+    --ease-romantic: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--gradient-romantic);
+    color: var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Selection Style */
+::selection {
+    background: var(--rose-gold);
+    color: var(--cream);
+}
+
+/* ============================================
+   FLOATING HEARTS BACKGROUND
+   ============================================ */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-bg-heart {
+    position: absolute;
+    color: var(--rose-gold);
+    opacity: 0.15;
+    animation: floatHeart linear infinite;
+    text-shadow: 0 0 20px rgba(183, 110, 121, 0.5);
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.15;
+    }
+    90% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translateY(-100px) rotate(720deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   BOKEH EFFECT
+   ============================================ */
+.bokeh-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bokeh {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.4;
+    animation: bokehFloat 15s ease-in-out infinite;
+}
+
+.bokeh-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--rose-gold) 0%, transparent 70%);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bokeh-2 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--gold-shimmer) 0%, transparent 70%);
+    top: 60%;
+    right: 15%;
+    animation-delay: -3s;
+}
+
+.bokeh-3 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--deep-burgundy) 0%, transparent 70%);
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -6s;
+}
+
+.bokeh-4 {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, var(--rose-gold-light) 0%, transparent 70%);
+    top: 30%;
+    right: 30%;
+    animation-delay: -9s;
+}
+
+.bokeh-5 {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, var(--champagne) 0%, transparent 70%);
+    bottom: 40%;
+    right: 5%;
+    animation-delay: -12s;
+}
+
+.bokeh-6 {
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, var(--rose-gold) 0%, transparent 70%);
+    top: 70%;
+    left: 5%;
+    animation-delay: -7s;
+}
+
+@keyframes bokehFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    75% {
+        transform: translate(20px, 10px) scale(1.05);
+    }
+}
+
+/* ============================================
+   AUDIO TOGGLE
+   ============================================ */
+.audio-toggle {
+    position: fixed;
+    top: var(--space-md);
+    right: var(--space-md);
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease-romantic);
+}
+
+.audio-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.audio-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--cream);
+}
+
+.audio-off {
+    display: none;
+}
+
+.audio-toggle.muted .audio-on {
+    display: none;
+}
+
+.audio-toggle.muted .audio-off {
+    display: block;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-prelude {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-style: italic;
+    color: var(--rose-gold-light);
+    margin-bottom: var(--space-sm);
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-romantic) 0.3s forwards;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: var(--space-lg);
+}
+
+.title-line {
+    display: block;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-romantic) forwards;
+}
+
+.title-line:first-child {
+    animation-delay: 0.5s;
+}
+
+.title-accent {
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--rose-gold-light) 0%, var(--gold-shimmer) 50%, var(--rose-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation-delay: 0.7s;
+    position: relative;
+}
+
+.title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--gradient-shimmer);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Countdown */
+.countdown-wrapper {
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-romantic) 1s forwards;
+}
+
+.countdown-label {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-gold-light);
+    margin-bottom: var(--space-sm);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-value {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    color: var(--champagne);
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(247, 231, 206, 0.3);
+}
+
+.countdown-unit {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose-gold);
+    margin-top: var(--space-xs);
+}
+
+.countdown-separator {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--rose-gold);
+    opacity: 0.5;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Scroll Hint */
+.scroll-hint {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-romantic) 1.5s forwards;
+}
+
+.scroll-hint span {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose-gold-light);
+    margin-bottom: var(--space-sm);
+}
+
+.scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid var(--rose-gold);
+    border-bottom: 2px solid var(--rose-gold);
+    transform: rotate(45deg);
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: rotate(45deg) translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(45deg) translate(5px, 5px);
+        opacity: 0.5;
+    }
+}
+
+/* ============================================
+   LOVE LETTER SECTION
+   ============================================ */
+.love-letter {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    background: linear-gradient(180deg, transparent 0%, rgba(253, 250, 246, 0.03) 50%, transparent 100%);
+}
+
+.letter-container {
+    max-width: 650px;
+    background: linear-gradient(145deg, rgba(253, 250, 246, 0.08) 0%, rgba(253, 250, 246, 0.03) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: var(--space-lg);
+    position: relative;
+    border: 1px solid rgba(253, 250, 246, 0.1);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: rotate(-1deg);
+    transition: transform 0.5s var(--ease-romantic);
+}
+
+.letter-container:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.letter-seal {
+    position: absolute;
+    top: -25px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, var(--deep-burgundy), var(--wine));
+    border-radius: 50%;
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter-seal::before {
+    content: '\2764';
+    font-size: 1.5rem;
+    color: var(--gold-shimmer);
+}
+
+.letter-content {
+    font-family: var(--font-display);
+}
+
+.letter-greeting {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--rose-gold-light);
+    margin-bottom: var(--space-md);
+}
+
+.letter-body {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--cream);
+    margin-bottom: var(--space-md);
+    text-indent: 2em;
+}
+
+.letter-closing {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--rose-gold-light);
+    margin-top: var(--space-lg);
+    text-align: right;
+}
+
+.letter-signature {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--champagne);
+    text-align: right;
+    margin-top: var(--space-sm);
+}
+
+/* ============================================
+   PHOTO GALLERY
+   ============================================ */
+.gallery {
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+}
+
+.gallery-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    color: var(--champagne);
+    margin-bottom: var(--space-sm);
+}
+
+.gallery-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--rose-gold-light);
+    margin-bottom: var(--space-lg);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    gap: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s var(--ease-romantic);
+}
+
+.gallery-item:hover {
+    transform: scale(1.03) rotate(1deg);
+    z-index: 10;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(45, 18, 22, 0.9) 100%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--wine) 0%, var(--deep-burgundy) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--rose-gold);
+    border-radius: 15px;
+}
+
+.placeholder-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--rose-gold);
+}
+
+.placeholder-hint {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--rose-gold-light);
+    opacity: 0.7;
+    margin-top: var(--space-xs);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-md);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--cream);
+    z-index: 2;
+    transform: translateY(100%);
+    transition: transform 0.3s var(--ease-romantic);
+}
+
+.gallery-item:hover .photo-caption {
+    transform: translateY(0);
+}
+
+/* Gallery variations */
+.gallery-item-1 {
+    grid-column: span 2;
+}
+
+.gallery-item-4 {
+    grid-column: span 2;
+}
+
+/* Responsive Gallery */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 250px);
+    }
+
+    .gallery-item-1,
+    .gallery-item-4 {
+        grid-column: span 1;
+    }
+}
+
+/* ============================================
+   QUESTION SECTION
+   ============================================ */
+.question-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    background: radial-gradient(ellipse at center, rgba(183, 110, 121, 0.1) 0%, transparent 70%);
+}
+
+.question-container {
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+}
+
+.question-hearts {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 60px;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--rose-gold);
+    animation: heartFloat 3s ease-in-out infinite;
+}
+
+.fh-1 {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.fh-2 {
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0.5s;
+    font-size: 2.5rem;
+}
+
+.fh-3 {
+    right: 20%;
+    animation-delay: 1s;
+}
+
+@keyframes heartFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.question-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: var(--champagne);
+    margin-bottom: var(--space-sm);
+}
+
+.question-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-style: italic;
+    color: var(--rose-gold-light);
+    margin-bottom: var(--space-lg);
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.valentine-btn {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    padding: var(--space-sm) var(--space-lg);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-romantic);
+    position: relative;
+    overflow: hidden;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, var(--rose-gold) 0%, var(--deep-burgundy) 100%);
+    color: var(--cream);
+    box-shadow:
+        0 10px 30px rgba(183, 110, 121, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    min-width: 180px;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 15px 40px rgba(183, 110, 121, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.yes-btn .btn-hearts {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.yes-btn:hover .btn-hearts {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.no-btn {
+    background: transparent;
+    color: var(--rose-gold-light);
+    border: 2px solid var(--rose-gold);
+    min-width: 120px;
+    transition: all 0.2s ease;
+}
+
+.no-btn:hover {
+    transform: scale(0.9);
+    opacity: 0.7;
+}
+
+/* Responses */
+.response {
+    display: none;
+    margin-top: var(--space-lg);
+    padding: var(--space-lg);
+    border-radius: 20px;
+    animation: responseAppear 0.8s var(--ease-romantic);
+}
+
+@keyframes responseAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.response.active {
+    display: block;
+}
+
+.yes-response {
+    background: linear-gradient(135deg, rgba(183, 110, 121, 0.3) 0%, rgba(114, 47, 55, 0.3) 100%);
+    border: 1px solid var(--rose-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.response-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--champagne);
+    margin-bottom: var(--space-sm);
+}
+
+.response-text {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--cream);
+    line-height: 1.8;
+}
+
+.response-hearts {
+    margin-top: var(--space-md);
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.response-hearts span {
+    color: var(--rose-gold);
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+.response-hearts span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.response-hearts span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.no-response {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.no-text {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--rose-gold-light);
+}
+
+/* Confetti Container */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(400px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s var(--ease-romantic);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    :root {
+        --space-lg: 2rem;
+        --space-xl: 4rem;
+    }
+
+    .countdown {
+        gap: var(--space-xs);
+    }
+
+    .countdown-item {
+        min-width: 60px;
+    }
+
+    .countdown-separator {
+        display: none;
+    }
+
+    .letter-container {
+        padding: var(--space-md);
+        transform: rotate(0);
+    }
+
+    .letter-seal {
+        top: -20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .letter-seal::before {
+        font-size: 1.2rem;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .valentine-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .audio-toggle {
+        top: var(--space-sm);
+        right: var(--space-sm);
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* High contrast preference */
+@media (prefers-contrast: high) {
+    :root {
+        --cream: #ffffff;
+        --rose-gold-light: #ffb6c1;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
