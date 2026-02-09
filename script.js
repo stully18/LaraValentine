@@ -333,12 +333,10 @@ function loadGalleryPhotos(photos) {
     });
 }
 
-// Example usage (uncomment and modify when ready):
-// loadGalleryPhotos([
-//     { src: 'photos/photo1.jpg', caption: 'Our first date' },
-//     { src: 'photos/photo2.jpg', caption: 'That amazing trip' },
-//     { src: 'photos/photo3.jpg', caption: 'Laughing together' },
-//     { src: 'photos/photo4.jpg', caption: 'My favorite smile' },
-//     { src: 'photos/photo5.jpg', caption: 'Making memories' },
-//     { src: 'photos/photo6.jpg', caption: 'Together forever' }
-// ]);
+loadGalleryPhotos([
+    { src: 'photos/photo1.jpg', caption: 'Our first adventure together' },
+    { src: 'photos/photo2.jpg', caption: 'That perfect sunset' },
+    { src: 'photos/photo3.jpg', caption: 'Laughing until it hurts' },
+    { src: 'photos/photo4.jpg', caption: 'My favorite smile' },
+    { src: 'photos/photo5.jpg', caption: 'Making memories' }
+]);
