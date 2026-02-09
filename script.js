@@ -334,9 +334,9 @@ function loadGalleryPhotos(photos) {
 }
 
 loadGalleryPhotos([
-    { src: 'photos/photo1.jpg', caption: 'Our first adventure together' },
-    { src: 'photos/photo2.jpg', caption: 'That perfect sunset' },
-    { src: 'photos/photo3.jpg', caption: 'Laughing until it hurts' },
-    { src: 'photos/photo4.jpg', caption: 'My favorite smile' },
-    { src: 'photos/photo5.jpg', caption: 'Making memories' }
+    { src: 'photos/photo1.jpg', caption: 'What a fun formal!' },
+    { src: 'photos/photo2.jpg', caption: 'FDOC!' },
+    { src: 'photos/photo3.jpg', caption: 'Your 21st!' },
+    { src: 'photos/photo4.jpg', caption: 'My favorite picture of us!' },
+    { src: 'photos/photo5.jpg', caption: 'You are my favorite person!' }
 ]);
